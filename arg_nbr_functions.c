@@ -21,7 +21,7 @@ int print_nbr(va_list ap)
 
 int print_binary(va_list ap)
 {
-	return (_puts(convert_base(va_arg(ap, unsigned int), 2, 0)));
+	return (_puts(convert_base(va_arg(ap, unsigned int), 2, 0), 0));
 }
 
 /**
@@ -32,7 +32,7 @@ int print_binary(va_list ap)
 
 int print_octal(va_list ap)
 {
-	return (_puts(convert_base(va_arg(ap, unsigned int), 8, 0)));
+	return (_puts(convert_base(va_arg(ap, unsigned int), 8, 0), 0));
 }
 
 /**
@@ -43,7 +43,7 @@ int print_octal(va_list ap)
 
 int print_hexa_lower(va_list ap)
 {
-	return (_puts(convert_base(va_arg(ap, unsigned int), 16, 0)));
+	return (_puts(convert_base(va_arg(ap, unsigned int), 16, 0), 0));
 }
 
 /**
@@ -54,5 +54,5 @@ int print_hexa_lower(va_list ap)
 
 int print_hexa_upper(va_list ap)
 {
-	return (_puts(convert_base(va_arg(ap, unsigned int), 16, 1)));
+	return (_puts(convert_base(va_arg(ap, unsigned int), 16, 1), 0));
 }

@@ -28,6 +28,12 @@ int main(void)
 	_printf("Unsigned binary: [%b, %b]\n", e, d); 
 	printf("%u\n", a);
 	_printf("%u\n", a);
+	_printf("carriage return %S\n", "test1 \n test2");
+	_printf("carriage return %S\n", "test1 \t test2");
+	_printf("carriage return %S\n", "test1 \b test2");
+	_printf("carriage return %S\n", "test1 \a test2");
+	_printf("carriage return %S\n", "test1 \v test2");
+	_printf("carriage return %S\n", "test1 \r test2");
 
 	return (0);
 }

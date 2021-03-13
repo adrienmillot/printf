@@ -22,7 +22,7 @@ int convert_alpha_numeric(int nb, int upper)
  * Return: converted number to string
  */
 
-char *convert_base(unsigned int nb, int base, int upper)
+char *convert_base(unsigned int nb, unsigned int base, int upper)
 {
 	int i = 0;
 	char *str;
