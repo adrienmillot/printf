@@ -63,13 +63,13 @@ int _printf(const char *format, ...)
 				func = get_op(format[i + 1]);
 				if (func == NULL)
 					return (0);
-				func(ap);
+				sum += func(ap);
 			}
 			/* increment i */
 			i += 2;
 			continue;
 		}
-		_putchar(format[i]);
+		sum += _putchar(format[i]);
 		i++;
 	}
 	va_end(ap);
