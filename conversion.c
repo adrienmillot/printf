@@ -87,6 +87,8 @@ char *convert_rot13(char *str)
 		else if ((str[i] >= 'n' && str[i] <= 'z')
 				|| (str[i] >= 'N' && str[i] <= 'Z'))
 			s[i] = str[i] - 13;
+		else
+			s[i] = str[i];
 		i++;
 	}
 	s[i] = '\0';
