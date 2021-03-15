@@ -57,7 +57,6 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			func = get_op(format[i + 1]);
 			if (format[i + 1] == '%')
 			{
 				i++;
