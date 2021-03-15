@@ -42,16 +42,17 @@ int print_number(int n)
 	if (n < 0)
 	{
 		_putchar('-');
+		count++;
 		nb = -nb;
 	}
 	if (nb <= 9)
 	{
-		_putchar(nb + '0');
-		return (1);
+		count += _putchar(nb + '0');
+		return (count);
 	}
 	if (nb > 9)
 	{
-		count = print_number(nb / 10) + 1;
+		count += print_number(nb / 10) + 1;
 		_putchar(nb % 10 + '0');
 		return (count);
 	}
