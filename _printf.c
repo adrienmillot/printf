@@ -57,7 +57,10 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			if (format[i + 1] == '%')
+			{
 				_putchar('%');
+				sum++;
+			}
 			else
 			{
 				func = get_op(format[i + 1]);
