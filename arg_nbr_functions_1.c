@@ -26,6 +26,12 @@ int print_ptr(va_list ap)
 	int sum = 0;
 	void *p = va_arg(ap, void*);
 
+	if (!p)
+	{
+		sum += _puts("(nil)", 0);
+		return (sum);
+	}
+
 	str = convert_base_pointer(p);
 	sum += _puts("0x", 0);
 	sum += _puts(str, 0);

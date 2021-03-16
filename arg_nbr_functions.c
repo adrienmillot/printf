@@ -22,9 +22,16 @@ int print_nbr(va_list ap)
 int print_binary(va_list ap)
 {
 	char *str;
-	int sum;
+	int sum = 0;
+	unsigned int argument = va_arg(ap, unsigned int);
 
-	str = convert_base(va_arg(ap, unsigned int), 2, 0);
+	if (!argument)
+	{
+		sum += _puts("%b", 0);
+		return (sum);
+	}
+
+	str = convert_base(argument, 2, 0);
 	sum = _puts(str, 0);
 	free(str);
 	return (sum);

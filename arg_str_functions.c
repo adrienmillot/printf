@@ -22,7 +22,16 @@ int print_char(va_list ap)
 
 int print_str(va_list ap)
 {
-	return (_puts(va_arg(ap, char *), 0));
+	char *argument = va_arg(ap, char *);
+	int sum = 0;
+
+	if (!argument)
+	{
+		sum += _puts("(null)", 0);
+		return (sum);
+	}
+
+	return (_puts(argument, 0));
 }
 
 /**
@@ -33,7 +42,16 @@ int print_str(va_list ap)
 
 int print_str_unprintable(va_list ap)
 {
-	return (_puts(va_arg(ap, char *), 1));
+	char *argument = va_arg(ap, char *);
+	int sum = 0;
+
+	if (!argument)
+	{
+		sum += _puts("(null)", 0);
+		return (sum);
+	}
+
+	return (_puts(argument, 1));
 }
 
 /**
@@ -45,6 +63,12 @@ int print_str_reverse(va_list ap)
 {
 	char *argument = va_arg(ap, char *), *str;
 	int size, left, limit, right, sum = 0;
+
+	if (!argument)
+	{
+		sum += _puts("%r", 0);
+		return (sum);
+	}
 
 	size = _strlen_recursion(argument);
 	right = size - 1;
@@ -85,10 +109,17 @@ int print_str_reverse(va_list ap)
 
 int print_rot13(va_list ap)
 {
-	int sum;
+	int sum = 0;
 	char *str;
+	char *argument = va_arg(ap, char*);
 
-	str = convert_rot13(va_arg(ap, char*));
+	if (!argument)
+	{
+		sum += _puts("%R", 0);
+		return (sum);
+	}
+
+	str = convert_rot13(argument);
 	sum = _puts(str, 0);
 	free(str);
 	return (sum);
