@@ -121,7 +121,7 @@ int print_rot13(va_list ap)
 
 	if (!argument)
 	{
-		sum += _puts("%R", 0);
+		sum += _puts("(NULL)", 0);
 		return (sum);
 	}
 

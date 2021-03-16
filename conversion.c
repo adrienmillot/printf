@@ -72,25 +72,36 @@ char *convert_base_pointer(void *p)
 
 char *convert_rot13(char *str)
 {
-	int i = 0;
+	int i = 0, j;
 	char *s;
 	int size = _strlen_recursion(str);
+	char origin[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char modif[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	s = malloc(sizeof(char) * size + 1);
 	if (!s)
 		return (0);
 
-	while (str[i])
+	if (str == NULL)
 	{
-		if ((str[i] >= 'a' && str[i] <= 'm') || (str[i] >= 'A' && str[i] <= 'M'))
-			s[i] = str[i] + 13;
-		else if ((str[i] >= 'n' && str[i] <= 'z')
-				|| (str[i] >= 'N' && str[i] <= 'Z'))
-			s[i] = str[i] - 13;
-		else
+		str = "(null)";
+	}
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		for (j = 0; j <= 52; j++)
+		{
+			if (str[i] == origin[j])
+			{
+				s[i] = modif[j];
+				break;
+			}
+		}
+		if (j == 53)
+		{
 			s[i] = str[i];
-		i++;
+		}
 	}
 	s[i] = '\0';
+
 	return (s);
 }
