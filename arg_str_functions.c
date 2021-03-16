@@ -64,6 +64,12 @@ int print_str_reverse(va_list ap)
 	char *argument = va_arg(ap, char *), *str;
 	int size, left, limit, right, sum = 0;
 
+	if (!argument)
+	{
+		sum += _puts("%r", 0);
+		return (sum);
+	}
+
 	size = _strlen_recursion(argument);
 	right = size - 1;
 	limit = (size % 2 == 0) ? (size + 1) / 2 : (size / 2);
