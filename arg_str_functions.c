@@ -109,10 +109,17 @@ int print_str_reverse(va_list ap)
 
 int print_rot13(va_list ap)
 {
-	int sum;
+	int sum = 0;
 	char *str;
+	char *argument = va_arg(ap, char*);
 
-	str = convert_rot13(va_arg(ap, char*));
+	if (!argument)
+	{
+		sum += _puts("%R", 0);
+		return (sum);
+	}
+
+	str = convert_rot13(argument);
 	sum = _puts(str, 0);
 	free(str);
 	return (sum);
