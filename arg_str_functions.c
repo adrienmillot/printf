@@ -42,7 +42,16 @@ int print_str(va_list ap)
 
 int print_str_unprintable(va_list ap)
 {
-	return (_puts(va_arg(ap, char *), 1));
+	char *argument = va_arg(ap, char *);
+	int sum = 0;
+
+	if (!argument)
+	{
+		sum += _puts("(null)", 0);
+		return (sum);
+	}
+
+	return (_puts(argument, 1));
 }
 
 /**
